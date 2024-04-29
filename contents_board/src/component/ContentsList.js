@@ -1,24 +1,24 @@
 import './ContentsList.css';
  
-import dummy from '../db/data.json'
+ 
 import { Link } from 'react-router-dom';
 
-const ContentsList =()=>{
-
+const ContentsList =({props, title})=>{
+    
     return(
+        <>
+        <h2>{title}</h2>
         <ul className="contentsList">
-            {dummy.contents.map((it)=>(
+            {props.map((it)=>(
                 <li key={it.id}>
-                    <Link to={`/item/${it.id}`}>
+                    <Link to={`/${it.menu}/${it.id}`} props={props}>
                         <h3>{it.title} </h3>
                         <p>{it.subTitle}</p>
                     </Link> 
                 </li>
-            ))}
-           
-           
-            
+            ))} 
         </ul>
+        </>
     )
 }
 

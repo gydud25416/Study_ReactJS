@@ -1,1 +1,3 @@
-.contentView{width:85%; background:#efefef;}
+.contentView{padding:100px 0; background:#efefef; width:85%; height:80vh; border:1px solid #aaa; }
+.contentView>div{position:relative;}
+.contentView button{ position:absolute; top:0px; left:30px; border:0; background:darkcyan; color:#fff; font-weight: bold; padding: 15px 30px; border-radius:10px; cursor: pointer;}

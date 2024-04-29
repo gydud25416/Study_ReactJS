@@ -1,6 +1,6 @@
-.contentsList{ width:85%;background:#efefef; display: flex; padding:150px 100px; justify-content: space-between;}
+.contentsList{ display: flex; padding:100px 10px; justify-content: space-between; flex-wrap: wrap;}
 
-.contentsList li{ text-align: center; background:#fff; width:calc(25% - 30px); height:350px; border-radius: 15px; box-shadow: 10px 10px 10px rgba(0,0,0,0.3);}
+.contentsList li{ text-align: center; background:#fff; width:22%; height:350px; border-radius: 15px; box-shadow: 10px 10px 10px rgba(0,0,0,0.3); margin-bottom:50px;}
 
 
 .contentsList li a{ height:300px; display: block; padding:25px;}

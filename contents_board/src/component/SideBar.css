@@ -1,2 +1,4 @@
 
-.sidebar{width:15%; background:lightpink; height: calc(100vh - 143px); }
+.sidebar{min-width:14%; width:14%; background:lightpink; height:500px; position:fixed; top:150px; left:5px; border-radius: 10px; box-shadow: 10px 10px 10px rgba(0,0,0,0.3); overflow: hidden; }
+
+.sidebar li a{border:1px solid #eee; display: block; width:100%; padding:20px 0;}
