@@ -1,4 +1,4 @@
 
-.sidebar{min-width:14%; width:14%; background:lightpink; height:500px; position:fixed; top:150px; left:5px; border-radius: 10px; box-shadow: 10px 10px 10px rgba(0,0,0,0.3); overflow: hidden; }
+.sidebar{  width:10%; background:rgb(180, 10, 10);  height:500px; position:fixed; top:180px; left:30px; border-radius: 10px 10px 0px 10px; box-shadow: 8px 8px 8px rgba(0,0,0,0.3); overflow: hidden; }
 
-.sidebar li a{border:1px solid #eee; display: block; width:100%; padding:20px 0;}
+.sidebar li a{border-bottom:1px solid #eee; display: block; width:100%; padding:20px 0; color:#fff;}

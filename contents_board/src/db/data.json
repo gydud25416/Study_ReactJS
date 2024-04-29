@@ -23,7 +23,7 @@
             "title":"파스타에 관한 내용",
             "subTitle" :"파스타에 대해 알아보자",
             "content":"파스타는 크림",
-            "headline":true
+            "headline":false
         },
         {
             "id":4, 
@@ -40,6 +40,30 @@
             "subTitle" :"회에 대해 알아보자",
             "content":"회는 지느러미살",
             "headline":true
+        },
+        {
+            "id":6, 
+            "menu":"foods",
+            "title":"수박에 관한 내용",
+            "subTitle" :"수박에 대해 알아보자",
+            "content":"수박은 시원하다",
+            "headline":true
+        },
+        {
+            "id":7, 
+            "menu":"foods",
+            "title":"삼겹살에 관한 내용",
+            "subTitle" :"삼겹살에 대해 알아보자",
+            "content":"삼겹살은 돼지고기다",
+            "headline":false
+        },
+        {
+            "id":8, 
+            "menu":"foods",
+            "title":"소고기에 관한 내용",
+            "subTitle" :"소고기에 대해 알아보자",
+            "content":"소고기는 소고기다",
+            "headline":false
         }
     ],
     "animals" : [ 
@@ -78,10 +102,34 @@
         {
             "id":5,
             "menu":"animals",
-            "title":"햄스터 관한 내용",
-            "subTitle" :"햄스터 대해 알아보자",
+            "title":"햄스터에 관한 내용",
+            "subTitle" :"햄스터에 대해 알아보자",
             "content":"햄스터는 해바라기씨를 좋아한다.",
+            "headline":false
+        },
+        {
+            "id":6,
+            "menu":"animals",
+            "title":"다람쥐에 관한 내용",
+            "subTitle" :"다람쥐에 대해 알아보자",
+            "content":"다람쥐는 도토리를 좋아한다.",
             "headline":true
+        },
+        {
+            "id":7,
+            "menu":"animals",
+            "title":"사슴에 관한 내용",
+            "subTitle" :"사슴에 대해 알아보자",
+            "content":"사슴은 눈이 예쁘다.",
+            "headline":false
+        },
+        {
+            "id":8,
+            "menu":"animals",
+            "title":"까마귀에 관한 내용",
+            "subTitle" :"까마귀에 대해 알아보자",
+            "content":"까마귀는 까맣다.",
+            "headline":false
         }
     ]
 }

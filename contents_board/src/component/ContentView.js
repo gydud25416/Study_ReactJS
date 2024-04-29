@@ -18,7 +18,7 @@ const ContentView = ({props})=>{
             {num.map((it)=>(
                 <div>
                     <button onClick={goback}>뒤로가기</button>
-                    <h3>{it.title}</h3>
+                    <h1>{it.title}</h1>
                     <p>{it.content}</p>
 
                 </div>

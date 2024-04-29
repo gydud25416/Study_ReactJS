@@ -1,3 +1,4 @@
-.contentView{padding:100px 0; background:#efefef; width:85%; height:80vh; border:1px solid #aaa; }
+.contentView{padding:30px 0; background:#fff; width:85%; height:80vh; border:1px solid #aaa; }
+.contentView h1 {padding-bottom:50px; border-bottom:1px solid #aaa; margin-bottom:50px; }
 .contentView>div{position:relative;}
-.contentView button{ position:absolute; top:0px; left:30px; border:0; background:darkcyan; color:#fff; font-weight: bold; padding: 15px 30px; border-radius:10px; cursor: pointer;}
+.contentView button{ position:absolute; top:25px; left:30px; border:0; background:darkcyan; color:#fff; font-weight: bold; padding: 15px 30px; border-radius:10px; cursor: pointer;}

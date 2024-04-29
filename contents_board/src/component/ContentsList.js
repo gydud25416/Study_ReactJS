@@ -7,8 +7,7 @@ const ContentsList =({props, title, headline})=>{
     const headline0 = props.filter((it)=>(it.headline === true));
     if(headline){
         return(
-            <>
-            <h2>{title}</h2>
+            <> 
             <ul className="contentsList">
                 {headline0.map((it)=>(
                     <li key={it.id}>
@@ -24,7 +23,7 @@ const ContentsList =({props, title, headline})=>{
     }else{
     return(
         <>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <ul className="contentsList">
             {props.map((it)=>(
                 <li key={it.id}>
