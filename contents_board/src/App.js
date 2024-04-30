@@ -24,7 +24,7 @@ function App() {
               <Route path='/foods/' element={<ContentsList props={dummy.foods} title={'FOODS'} />}/>
               <Route path='/animals/:item' element={<ContentView props={dummy.animals}/>}/>
               <Route path='/foods/:item' element={<ContentView props={dummy.foods}/>}/>
-              <Route path='/*' element={<EmptyPage/>}/>
+              <Route path='*' element={<EmptyPage/>}/>
   
             </Routes>
           </div>
