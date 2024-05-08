@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch';
 
 const DayList = ()=>{
     const days = useFetch("http://localhost:3001/days")
-    
+ 
     return(
         <>
         <ul className='list_day'>
