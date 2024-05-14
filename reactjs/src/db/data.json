@@ -13,7 +13,7 @@
       "day": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "day": 4
     }
   ],
@@ -65,6 +65,13 @@
       "day": "4",
       "eng": "monkey",
       "kor": "원숭이",
+      "isDone": false
+    },
+    {
+      "id": "c561",
+      "day": "1",
+      "eng": "apple",
+      "kor": "사과",
       "isDone": false
     }
   ]
