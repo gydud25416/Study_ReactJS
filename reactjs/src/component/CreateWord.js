@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 export default function CreateWord(){
     const navigate = useNavigate();
     const days = useFetch("http://localhost:3001/days");
+    const words = useFetch("http://localhost:3001/words");
+
 
     const [isLoading, setIsLoading] = useState(false); 
 
@@ -20,6 +22,7 @@ export default function CreateWord(){
                     "Content-Type":"application/json",
                 },
                 body:JSON.stringify({
+ 
                     day:dayRef.current.value,
                     eng:engRef.current.value,
                     kor:korRef.current.value,

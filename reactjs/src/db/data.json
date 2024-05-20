@@ -15,10 +15,6 @@
     {
       "id": "4",
       "day": 4
-    },
-    {
-      "id": "5",
-      "day": 5
     }
   ],
   "words": [
@@ -51,13 +47,6 @@
       "isDone": false
     },
     {
-      "id": "d030",
-      "day": "2",
-      "eng": "book",
-      "kor": "책",
-      "isDone": false
-    },
-    {
       "id": "fbf7",
       "day": "3",
       "eng": "home",
@@ -76,6 +65,13 @@
       "day": "1",
       "eng": "apple",
       "kor": "사과",
+      "isDone": false
+    },
+    {
+      "id": "044d",
+      "day": "2",
+      "eng": "computer",
+      "kor": "컴퓨터",
       "isDone": false
     }
   ]
