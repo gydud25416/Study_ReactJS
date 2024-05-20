@@ -12,7 +12,7 @@ export default function CreateDay(){
                 'Content-Type':'application/json',
             },
             body:JSON.stringify({
-                id:days.length + 1,
+                id: `${days.length + 1}`,
                 day : days.length + 1,
             })
         })
@@ -22,12 +22,16 @@ export default function CreateDay(){
             }
         })
     }
- 
+    
+    function delDay(){
+
+    }
 
     return(
         <div>
             <h3>현재 일수 : {days.length}일</h3>
             <button onClick={addDay}>Day 추가</button>
+            <button onClick={delDay} className="btn_del">Day 삭제</button>
         </div>
     )
 }
