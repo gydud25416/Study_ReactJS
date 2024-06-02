@@ -1,0 +1,17 @@
+.main_wrap.wrap_add{ margin-top:1px;}
+.main_wrap.wrap_add>div{margin-bottom:20px;}
+
+.wrap_add{}
+.wrap_add h2 { text-align: center;}
+.wrap_add .date{  padding:10px 8px; height:30px; margin:20px 0; width:100%; border:#555 2px solid; }
+
+.wrap_add input{font-family: 'GmarketSansMedium'; border-radius: 5px; height:50px; border:2px #555 solid; box-sizing: border-box; font-size: 18px; text-align: right; padding:3px 8px; }
+.wrap_add input:focus{border:#5967e4 2px solid; outline : 0;}
+
+.wrap_add select{font-family: 'GmarketSansMedium'; border:2px #555 solid; padding:3px 8px; height:50px;  border-radius: 5px; background:#5967e4; border:0; color:#fff;font-size: 18px; width:20%; }
+.wrap_add select option{color:#fff; background:#919bf0;}
+
+.wrap_add .text{ width:80%; text-align: right;}
+.wrap_add .text2{ width:100%;  text-align: right;}
+.wrap_add .btn{ display: flex; justify-content: center; gap:10px;} 
+.wrap_add .btn button{ }

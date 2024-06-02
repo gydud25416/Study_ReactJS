@@ -1,0 +1,9 @@
+.wrap_view{}
+
+.wrap_view  {margin-top:10px; border-bottom:2px #555 solid; border-top:2px #555 solid;}
+
+.wrap_view  li { padding:12px 10px; border-bottom:2px #efefef solid; display: flex; justify-content: space-between; align-items: center;  }
+.wrap_view  li:last-child{border-bottom:0;}
+.wrap_view  li button{padding:5px 8px; font-size: 13px;}
+.wrap_view p{line-height: 16px;}
+.wrap_view  li .day{color:#666; font-size: 13px; }

@@ -1,0 +1,5 @@
+.wrap_graph{ border:1px solid #eee; padding:50px 20px 0 20px; display: flex; gap:30px; justify-content: center;  background:#dee1f3; }
+
+.wrap_graph .graph_box{ position:relative; width:30px; height:180px;  border-radius: 5px 5px 0 0; display: flex; flex-direction: column; align-items: center; background:#fff;}
+.wrap_graph .graph_box .graph_item{width:100%; background:#5967e4; position:absolute; bottom:0;}
+.wrap_graph .graph_box p{ position:absolute; top:100%; padding-top:10px; }
