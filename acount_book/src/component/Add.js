@@ -36,9 +36,9 @@ export default function Add({btn, onClick}){
             })
         })
         .then(res=>{
-            if(res.ok){
- 
-                alert("성공");
+            if(res.ok){ 
+                alert("등록하였습니다.");
+                window.location.reload();
         }
         })
     }

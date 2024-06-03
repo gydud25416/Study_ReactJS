@@ -15,7 +15,8 @@ export default function ItemView({ it }){
         .then(res=>{
             if(res.ok){
                 setItem({id:0});
-                alert("삭제되었습니다.")
+                alert("삭제되었습니다.");
+                window.location.reload();
             }
         });
     } 
