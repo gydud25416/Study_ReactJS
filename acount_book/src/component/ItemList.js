@@ -9,23 +9,50 @@ export default function ItemList(){
  
     const [yearItem, setYearItem] = useState();  
     const [ itemData, setItemData] = useState(item);
+    const [ plusFilter, setPlusFilter] = useState('all')
+ 
  
     function handleOnChange(){
         setYearItem(yearRef.current.value); 
+        setPlusFilter("all");
     } 
-    useEffect(()=>{   
+    useEffect(()=>{   //초기 데이터 불러오기
         setItemData(item);  
         },[item])
  
-    useEffect(()=>{  
+    useEffect(()=>{  //연도 필터
         if(yearRef.current.value === '전체'){
             setItemData(item); 
         }else{
-            setItemData(item.filter((it)=>(it.year === yearItem)));  
- 
+            setItemData(item.filter((it)=>(it.year === yearItem)));   
         }
-    },[yearItem, item])
- 
+    },[yearItem, item]);
+
+    function itemAll(){ //입금 출금 전체 필터
+        if(yearRef.current.value === '전체'){
+            setItemData(item); 
+        }else{
+            setItemData(item.filter((it)=>(it.year === yearItem)));   
+        }
+        setPlusFilter("all");
+    }; 
+    function itemPlus(){ //입금 필터
+        if(yearRef.current.value === '전체'){
+            setItemData(item.filter((it)=>(it.add === "+1"))); 
+        }else{
+            setItemData(item.filter((it)=>(it.add === "+1" && it.year === yearItem)));  
+        } 
+        setPlusFilter("+1");
+    }
+    function itemMinus(){ //출금 필터
+        if(yearRef.current.value === '전체'){
+            setItemData(item.filter((it)=>(it.add === "-1"))); 
+        }else{
+            setItemData(item.filter((it)=>(it.add === "-1" && it.year === yearItem)));  
+        }  
+        setPlusFilter("-1");
+    }
+
     return(
         <div className="wrap_list">
             <div className="list_header">
@@ -36,10 +63,10 @@ export default function ItemList(){
                     <option value={'2022'}>2022</option>
                 </select>
 
-                <ul>
-                    <li className='on'>전체</li>
-                    <li>입금</li>
-                    <li>출금</li>
+                <ul className='plusFilter'>
+                    <li className={plusFilter === "all" ? "on" : ''} onClick={itemAll}>전체</li>
+                    <li className={plusFilter === "+1" ? "on" : ''} onClick={itemPlus}>입금</li>
+                    <li className={plusFilter === "-1" ? "on" : ''} onClick={itemMinus}>출금</li>
                 </ul>
             </div>
             <div className='list_view'>

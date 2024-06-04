@@ -30,7 +30,7 @@ export default function ItemView({ it }){
                         <p style={{color:it.add === "+1" ? "blue" : "red"}}>{it.add === "+1" ? "입금" : "출금"}</p>
                         <p className='day'>{it.day}</p>
                         <p>{it.content}</p>
-                        <p>{it.money} 원</p>
+                        <p>{it.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</p>
                         <button onClick={onDelete}>X</button>
                     </li> 
                 </> 
