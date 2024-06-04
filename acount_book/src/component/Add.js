@@ -17,6 +17,10 @@ export default function Add({btn, onClick}){
     function handleChangeDate(e){
         setState(e.target.value);
     } 
+
+    function onlyNumber(){
+        textRef.current.value = textRef.current.value.replace(/[^0-9]/, '');
+    }
  
     function onSubmit(e){
         e.preventDefault();
@@ -48,13 +52,14 @@ export default function Add({btn, onClick}){
             <h2>내역 추가하기</h2>
             <input className='date' ref={dateRef} type='date'   value={state.date}  onChange={handleChangeDate} />
             <div>
+                
+                <label for={'memo'} style={{ display:"block",   fontSize:"18px" }}>메모</label>
+                <input id={'memo'}  className='text2' placeholder='메모를 입력하세요.'  ref={contentRef} type='text'/>
                 <select ref={plusRef} >
                     <option value={"+1"}>입금</option>
                     <option value={"-1"}>출금</option>
                 </select>
-                <input className='text' ref={textRef} type='text'/>
-                <label style={{ display:"block",   marginTop:"30px", fontSize:"18px" }}>메모</label>
-                <input className='text2'  ref={contentRef} type='text'/>
+                <input className='text' placeholder='금액를 입력하세요.' onChange={onlyNumber}  ref={textRef} type='text'/>
             </div>
             <div className='btn'>
                 <Button  text={"등록"} onClick={onSubmit} className={"btn_add"} />

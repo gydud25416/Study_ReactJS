@@ -11,7 +11,7 @@
 .wrap_add select{font-family: 'GmarketSansMedium'; border:2px #555 solid; padding:3px 8px; height:50px;  border-radius: 5px; background:#5967e4; border:0; color:#fff;font-size: 18px; width:20%; }
 .wrap_add select option{color:#fff; background:#919bf0;}
 
-.wrap_add .text{ width:80%; text-align: right;}
+.wrap_add .text{ width:80%; text-align: right; margin-top:30px;}
 .wrap_add .text2{ width:100%;  text-align: right;}
 .wrap_add .btn{ display: flex; justify-content: center; gap:10px;} 
 .wrap_add .btn button{ }

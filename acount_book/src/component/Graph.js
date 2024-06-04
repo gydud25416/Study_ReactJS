@@ -12,9 +12,9 @@ export default function Graph(){
         .then(graph=>{
             setGraph(graph);
         })
-    });
-    console.log(graph)
-
+    },[]);
+ 
+    console.log(graph); 
     return(
         <div className="wrap_graph">
             <div className='graph_box'>
