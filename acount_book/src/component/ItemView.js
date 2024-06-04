@@ -1,11 +1,10 @@
  
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import './ItemView.css'
    
 export default function ItemView({ it }){
  
     const [ item, setItem] = useState(it);
-    const liRef = useRef();
   
     function onDelete(){
         if(window.confirm("정말 삭제하시겠습니까?")) {
@@ -25,15 +24,17 @@ export default function ItemView({ it }){
         return null; //아무일도 일어나지 않는다.
     }
  
-    return(
-             <>
-                <li ref={liRef}>
-                    <p style={{color:it.add === "+1" ? "blue" : "red"}}>{it.add === "+1" ? "입금" : "출금"}</p>
-                    <p className='day'>{it.day}</p>
-                    <p>{it.content}</p>
-                    <p>{it.money} 원</p>
-                    <button onClick={onDelete}>X</button>
-                </li> 
-             </> 
-    )
-}
+        return(
+                <>
+                    <li className='abc'>
+                        <p style={{color:it.add === "+1" ? "blue" : "red"}}>{it.add === "+1" ? "입금" : "출금"}</p>
+                        <p className='day'>{it.day}</p>
+                        <p>{it.content}</p>
+                        <p>{it.money} 원</p>
+                        <button onClick={onDelete}>X</button>
+                    </li> 
+                </> 
+        )
+    }
+
+ 

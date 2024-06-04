@@ -9,7 +9,7 @@ export default function ItemList(){
  
     const [yearItem, setYearItem] = useState();  
     const [ itemData, setItemData] = useState(item);
-    
+ 
     function handleOnChange(){
         setYearItem(yearRef.current.value); 
     } 
@@ -22,6 +22,7 @@ export default function ItemList(){
             setItemData(item); 
         }else{
             setItemData(item.filter((it)=>(it.year === yearItem)));  
+ 
         }
     },[yearItem, item])
  
@@ -42,11 +43,18 @@ export default function ItemList(){
                 </ul>
             </div>
             <div className='list_view'>
-                <ul className="wrap_view">
+                {itemData.length === 0 ? (
+                    <ul className="wrap_view">
+                    <li style={{justifyContent:"center"}}>내역이 없습니다.</li>
+                </ul>
+                ):(
+                    <ul className="wrap_view">
                     {itemData.map((it, idx)=>(
-                        <ItemView key={idx} it={it} />
+                        <ItemView key={idx} it={it}   />
                     ))} 
                 </ul>
+                )}
+                
             </div>
         </div>
     )
