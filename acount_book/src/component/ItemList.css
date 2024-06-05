@@ -1,0 +1,12 @@
+.wrap_list{  }
+
+.wrap_list .list_header{ display: flex; align-items: center; justify-content: space-between;}
+
+.wrap_list .list_header select{padding:5px 10px; border-radius: 5px; background:#5967e4; border:0; color:#fff; font-family: 'GmarketSansMedium'}
+.wrap_list .list_header select option{ background:#919bf0; color:#fff; border-radius: 0; }
+
+.wrap_list .list_header ul{display: flex;}
+.wrap_list .list_header ul li{padding:0 5px;  cursor: pointer;}
+.wrap_list .list_header ul li.on{color:#5967e4; }
+.wrap_list .list_header ul li:nth-child(2){border-right:2px solid #555;border-left:2px solid #555;}
+.wrap_list .list_header .ItemSearch { width:50%; text-align: right; border:0; border-bottom:2px solid #5967e4; padding: 5px 10px; font-family: 'GmarketSansMedium' ;}

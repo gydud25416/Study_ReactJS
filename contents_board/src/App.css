@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+ 
+ .page_wrap {display: flex; justify-content: space-between; background-color: #efefef; }
+ .page_wrap .contents_wrap{width:85%;background:#efefef; margin-left:15%;}
+ .page_wrap .contents_wrap h1{padding-top:30px;}
+ 
