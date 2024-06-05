@@ -9,3 +9,4 @@
 .wrap_list .list_header ul li{padding:0 5px;  cursor: pointer;}
 .wrap_list .list_header ul li.on{color:#5967e4; }
 .wrap_list .list_header ul li:nth-child(2){border-right:2px solid #555;border-left:2px solid #555;}
+.wrap_list .list_header .ItemSearch { width:50%; text-align: right; border:0; border-bottom:2px solid #5967e4; padding: 5px 10px; font-family: 'GmarketSansMedium' ;}
