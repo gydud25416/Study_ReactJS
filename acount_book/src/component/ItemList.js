@@ -33,15 +33,15 @@ export default function ItemList(){
     useEffect(()=>{  //내역 필터링
         let result = item ;
 
-        if(yearRef.current.value !== '전체'){
+        if(yearRef.current.value !== '전체'){ //연도 필터링
             result = result.filter((it)=>(it.year === yearItem )); 
         }
 
-        if(plusFilter !== "all"){
+        if(plusFilter !== "all"){ //입금 출금 필터링
             result = result.filter((it)=>(it.add === plusFilter ));
         }
 
-        if(search){
+        if(search){ //검색 결과 필터링
             result = result.filter((it)=>( it.content.includes(search)));
         } 
         
