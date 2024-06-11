@@ -45,11 +45,13 @@ export default function ItemList(){
             result = result.filter((it)=>( it.content.includes(search)));
         } 
         
-        setItemData(result);
+        result.sort((a,b)=>{   //최신순으로 정렬 (b-a)
+            return new Date(b.day) - new Date(a.day);
+        }) 
+        setItemData(result); 
 
     },[yearItem, item, plusFilter, search]);
-   
-  
+    
     return(
         <div className="wrap_list">
             <div className="list_header">
