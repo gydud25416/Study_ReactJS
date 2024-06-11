@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect, useState } from 'react';
 
 export default function Graph(){
-    const graph = useFetch('http://localhost:3001/item');
+    const graph = useFetch('https://midnight-cumbersome-cashew.glitch.me/item');
     const [ plusFilter, setPlusFilter] = useState('+1');
     const [yearFilter, setYearFilter] = useState({'2024':0, '2023':0, '2022':0});
    

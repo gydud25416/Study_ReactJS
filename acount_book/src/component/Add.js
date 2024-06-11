@@ -39,7 +39,7 @@ export default function Add({btn, onClick}){
         e.preventDefault();
         if(window.confirm("등록하시겠습니까?")){
 
-        fetch('http://localhost:3001/item',{
+        fetch('https://midnight-cumbersome-cashew.glitch.me/item',{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",

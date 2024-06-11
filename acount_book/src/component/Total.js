@@ -2,7 +2,7 @@ import useFetch from '../hooks/useFetch'
 import './Total.css'
 export default function Total(){
 
-    const item = useFetch('http://localhost:3001/item')
+    const item = useFetch('https://midnight-cumbersome-cashew.glitch.me/item')
 
     return(
         <div className="wrap_total">

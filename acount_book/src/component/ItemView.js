@@ -8,7 +8,7 @@ export default function ItemView({ it }){
   
     function onDelete(){
         if(window.confirm("정말 삭제하시겠습니까?")) {
-        fetch(`http://localhost:3001/item/${item.id}`,{
+        fetch(`https://midnight-cumbersome-cashew.glitch.me/item/${item.id}`,{
             method:"DELETE", 
         })
         .then(res=>{

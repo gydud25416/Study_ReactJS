@@ -4,7 +4,7 @@ import './ItemList.css'
 import ItemView from './ItemView'
 
 export default function ItemList(){
-    const item = useFetch('http://localhost:3001/item')
+    const item = useFetch('https://midnight-cumbersome-cashew.glitch.me/item')
     const yearRef = useRef(null);
     const searchRef = useRef(null);
  
