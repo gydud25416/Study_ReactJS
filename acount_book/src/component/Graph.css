@@ -1,4 +1,4 @@
-.wrap_graph{ border:1px solid #555; padding:50px 20px 0 20px; display: flex; gap:30px; justify-content: center;  background:#dee1f3; overflow: hidden }
+.wrap_graph{ border:1px solid #555; padding:50px 20px 0 20px; display: flex; gap:30px; justify-content: center;  background:#dee1f3; }
 
 .wrap_graph .graph_box{ position:relative; width:30px; height:180px;  border-radius: 5px 5px 0 0; display: flex; flex-direction: column; align-items: center; background:#fff; box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.2);}
 .wrap_graph .graph_box .graph_item{width:100%; height:0%; background:#5967e4; position:absolute; bottom:0; transition:0.5s; }
