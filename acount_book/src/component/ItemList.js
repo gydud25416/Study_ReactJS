@@ -69,7 +69,12 @@ export default function ItemList(){
                 </ul>
             </div>
             <div className='list_view'>
-                {itemData.length === 0 ? (
+                {item.length === 0 ?(
+                    <ul className="wrap_view">
+                        <li style={{justifyContent:"center"}}>내역 불러오는중 ...</li>
+                    </ul>
+                ):(
+                (itemData.length === 0 ? (
                     <ul className="wrap_view">
                     <li style={{justifyContent:"center"}}>내역이 없습니다.</li>
                 </ul>
@@ -79,7 +84,7 @@ export default function ItemList(){
                         <ItemView key={idx} it={it}   />
                     ))} 
                 </ul>
-                )}
+                )))}
                 
             </div>
         </div>
