@@ -34,6 +34,15 @@ function App() {
 
   return (
     <>
+    {item.length === 0 ? (
+      <div className='loading'>
+        <p>데이터를 불러오는 중입니다...</p>
+        <div className='circle'></div>
+      </div>
+    ):(
+      <div style={{display:'none'}}></div>
+    )}
+    
     <div className="main_wrap">
        <Header/>
        <Graph addData={addData}/>
