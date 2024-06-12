@@ -1,18 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
-import useFetch from '../hooks/useFetch'
+import { useEffect, useRef, useState } from 'react' 
 import './ItemList.css'
 import ItemView from './ItemView'
 
-export default function ItemList(){
-    const item = useFetch('https://midnight-cumbersome-cashew.glitch.me/item')
+export default function ItemList({addData, DelData}){ 
     const yearRef = useRef(null);
     const searchRef = useRef(null);
  
     const [yearItem, setYearItem] = useState('전체');  
-    const [ itemData, setItemData] = useState(item);
+    const [ itemData, setItemData] = useState(addData);
     const [ plusFilter, setPlusFilter] = useState("all");
     const [search, setSearch] = useState('');
- 
+    
+    
  
     function handleOnChange(){ //연도 이동
         setYearItem(yearRef.current.value); 
@@ -26,12 +25,10 @@ export default function ItemList(){
         setSearch(e.target.value); 
    }
 
-   useEffect(()=>{ //초기 데이터 불러오기
-    setItemData(item)
-   },[item]);
+ 
 
     useEffect(()=>{  //내역 필터링
-        let result = item ;
+        let result = addData ;
 
         if(yearRef.current.value !== '전체'){ //연도 필터링
             result = result.filter((it)=>(it.year === yearItem )); 
@@ -45,12 +42,12 @@ export default function ItemList(){
             result = result.filter((it)=>( it.content.includes(search)));
         } 
         
-        result.sort((a,b)=>{   //최신순으로 정렬 (b-a)
+        result.sort((a, b)=>{   //최신순으로 정렬 (b-a)
             return new Date(b.day) - new Date(a.day);
         }) 
-        setItemData(result); 
+        setItemData(result);  
 
-    },[yearItem, item, plusFilter, search]);
+    },[yearItem, addData, plusFilter, search]);
     
     return(
         <div className="wrap_list">
@@ -69,7 +66,7 @@ export default function ItemList(){
                 </ul>
             </div>
             <div className='list_view'>
-                {item.length === 0 ?(
+                {addData.length === 0 ?(
                     <ul className="wrap_view">
                         <li style={{justifyContent:"center"}}>내역 불러오는중 ...</li>
                     </ul>
@@ -81,7 +78,7 @@ export default function ItemList(){
                 ):(
                     <ul className="wrap_view">
                     {itemData.map((it, idx)=>(
-                        <ItemView key={idx} it={it}   />
+                        <ItemView key={idx} it={it} DelData={DelData}  />
                     ))} 
                 </ul>
                 )))}

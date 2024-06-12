@@ -1,10 +1,7 @@
-import useFetch from '../hooks/useFetch'
 import './Total.css'
-export default function Total(){
+export default function Total({addData}){ 
 
-    const item = useFetch('https://midnight-cumbersome-cashew.glitch.me/item')
-
-    if(item.length === 0){
+    if(addData.length === 0){
         return(
             <div className="wrap_total">
                 <h2>총 자산</h2>
@@ -15,7 +12,7 @@ export default function Total(){
     return(
         <div className="wrap_total">
             <h2>총 자산</h2>
-            <p>{item.reduce((sum, item)=> sum + parseInt(item.add)*parseInt(item.money, 10), 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+            <p>{addData.reduce((sum, addData)=> sum + parseInt(addData.add)*parseInt(addData.money, 10), 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
         </div>
     )
 }}

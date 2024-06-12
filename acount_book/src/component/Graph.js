@@ -1,24 +1,22 @@
  
-import './Graph.css'
-import useFetch from '../hooks/useFetch';
+import './Graph.css' 
 import { useEffect, useState } from 'react';
 
-export default function Graph(){
-    const graph = useFetch('https://midnight-cumbersome-cashew.glitch.me/item');
+export default function Graph({addData}){ 
     const [ plusFilter, setPlusFilter] = useState('+1');
     const [yearFilter, setYearFilter] = useState({'2024':0, '2023':0, '2022':0});
    
     useEffect(()=>{ //초기 계산 함수 불러오기
         graphYear(); 
-    },[plusFilter, graph]) 
+    },[plusFilter, addData]) 
     function PlusFilter(t){
         setPlusFilter(t);
     } 
     function graphYear(){ //년도별 퍼센트 계산
-        const graphTotal = graph.filter((it)=>(it.add === plusFilter)).reduce((sum, graph)=> sum + parseInt(graph.money, 10), 0);
+        const graphTotal = addData.filter((it)=>(it.add === plusFilter)).reduce((sum, addData)=> sum + parseInt(addData.money, 10), 0);
 
         const years = [2024, 2023, 2022].map((year)=>(
-            graph.filter((it)=>(it.year === String(year) && it.add=== plusFilter )).reduce((sum, graph)=> sum + parseInt(graph.money, 10 ), 0) 
+            addData.filter((it)=>(it.year === String(year) && it.add=== plusFilter )).reduce((sum, addData)=> sum + parseInt(addData.money, 10 ), 0) 
         ))  
         setYearFilter({
             '2024': parseInt((years[0]/graphTotal)*100),

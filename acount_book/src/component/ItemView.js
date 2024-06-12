@@ -1,28 +1,21 @@
  
-import { useState } from 'react'
 import './ItemView.css'
    
-export default function ItemView({ it }){
- 
-    const [ item, setItem] = useState(it);
+export default function ItemView({ it, DelData }){
   
     function onDelete(){
         if(window.confirm("정말 삭제하시겠습니까?")) {
-        fetch(`https://midnight-cumbersome-cashew.glitch.me/item/${item.id}`,{
+        fetch(`https://midnight-cumbersome-cashew.glitch.me/item/${it.id}`,{
             method:"DELETE", 
         })
         .then(res=>{
-            if(res.ok){
-                setItem({id:0});
+            if(res.ok){ 
                 alert("삭제되었습니다."); 
+                DelData(it);
             }
         });
     } 
-    }
-    if(item.id === 0){
-        return null; //아무일도 일어나지 않는다.
-    }
- 
+    } 
         return(
                 <>
                     <li className='abc'>

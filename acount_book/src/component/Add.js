@@ -4,7 +4,7 @@ import Button from './Button'
 import './Button.css'
 import getFormattedDate  from './util.js'
 
-export default function Add({btn, onClick}){
+export default function Add({btn, onClick, AddData}){
     const dateRef = useRef(null);
     const plusRef = useRef(null);
     const textRef = useRef(null);
@@ -38,24 +38,26 @@ export default function Add({btn, onClick}){
         
         e.preventDefault();
         if(window.confirm("등록하시겠습니까?")){
-
-        fetch('https://midnight-cumbersome-cashew.glitch.me/item',{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body:JSON.stringify({
+            const newItem = {
                 money: textRef.current.value ,
                 year: dateRef.current.value.split('-')[0], 
                 day: dateRef.current.value,
                 content: contentRef.current.value,
                 add:plusRef.current.value
-            })
-        })
-        .then(res=>{
-            if(res.ok){ 
-                alert("등록하였습니다.");
-                window.location.reload();
+            };
+        fetch('https://midnight-cumbersome-cashew.glitch.me/item',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify(newItem)
+        }) 
+        .then(res=> res.json())
+        .then(data=>{
+            if(data){ 
+                alert("등록하였습니다."); 
+                AddData(data);
+                onClick();
         }
         })
     }
