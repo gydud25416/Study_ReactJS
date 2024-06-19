@@ -1,5 +1,34 @@
-.home{}
- 
-.home .haedLine h2{text-align: left; padding:30px 0 10px 0;}
+.home{ display: flex; width:100%; justify-content: space-between;   align-items: flex-start; align-items: stretch;}
+.home section{width:48%;}
+.home   .haedLine  .contentsList li{margin-bottom:10px; border-radius: 0;}
+
+.home   .animal_wrap .haedLine {height:100%;}
+.home   .animal_wrap .haedLine  .contentsList li {display: none;}
+.home   .animal_wrap .haedLine  .contentsList{height: calc(100% - 46px);}
+.home   .animal_wrap .haedLine  .contentsList li:first-child{display: block;}
+.home .animal_wrap .haedLine  .contentsList li { width:100%;}
+.home .animal_wrap .haedLine  .contentsList li a { text-align: left; height:100%; }
+.home .animal_wrap .haedLine  .contentsList li a div{width:100%;height:80%; background-position: center; background-repeat: no-repeat; background-size: cover;}
+.home .animal_wrap .haedLine  .contentsList li a h3{border-radius: 0;background:none; color:#333; padding:0;padding:15px 10px 10px 10px; font-size: 20px;}
+.home .animal_wrap .haedLine  .contentsList li a p{border-radius: 0; background:none; color:#333; padding:0;padding:10px; padding-top:0;}
+
+.home .food_wrap .haedLine  .contentsList li { width:100%;  height:133px;    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    border-top: 2px #aaa solid;
+    border-bottom:2px #aaa solid; box-sizing: border-box;}
+.home .food_wrap .haedLine  .contentsList li a { height:auto;     padding: 28px 10px;}
+.home .food_wrap .haedLine  .contentsList li a h3{
+    background: none;
+    color: #333;
+    padding: 0;
+    text-align: left;
+}
+.home .food_wrap .haedLine  .contentsList li a p{
+    text-align: left;
+    padding-top: 5px;
+}
+.home .haedLine h2{text-align: left; padding:0px 0 10px 0;}
 
 .home .haedLine .contentsList {padding:0;}
+ 

@@ -12,6 +12,8 @@ const ContentsList =({props, title, headline})=>{
                 {headline0.map((it)=>(
                     <li key={it.id}>
                         <Link to={`/${it.menu}/${it.id}`} props={props}>
+                         
+                            <div style={{backgroundImage:`url(/assets/img_${it.id}.jpg)`  }}></div>
                             <h3>{it.title} </h3>
                             <p>{it.subTitle}</p>
                         </Link> 

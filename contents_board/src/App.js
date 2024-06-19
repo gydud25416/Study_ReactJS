@@ -1,14 +1,16 @@
  
 import './App.css';
 import ContentView from './component/ContentView';
- 
+import Footer from './component/Footer';
 import ContentsList from './component/ContentsList';
 import EmptyPage from './component/EmptyPage';
 import Header from './component/Header';
 import Home from './component/Home';
-import SideBar from './component/SideBar';
+// import SideBar from './component/SideBar';
+
 import { Routes, BrowserRouter, Route} from "react-router-dom"
 import dummy from "./db/data.json"
+
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
       <div className="App">
         <Header/>
         <div className='page_wrap'>
-          <SideBar/>
+          {/* <SideBar/> */}
           <div className='contents_wrap'>
             <Routes>
               <Route path='/' element={<Home/>}/>
@@ -29,6 +31,7 @@ function App() {
             </Routes>
           </div>
         </div>
+        <Footer/>
       </div>
     </BrowserRouter>
   );

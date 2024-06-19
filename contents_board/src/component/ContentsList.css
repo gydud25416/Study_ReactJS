@@ -4,6 +4,6 @@
 .contentsList h1{padding-top:30px;}
 
 .contentsList li a{ height:350px; display: block;  transition:0.5s; }
-.contentsList li a:hover{background:#f4f4f4;}
+/* .contentsList li a:hover{background:#f4f4f4;} */
 .contentsList li a h3{width:100%; background:rgb(180, 10, 10);padding:20px 0; border-radius: 15px 15px 0 0; color:#fff;  }
 .contentsList li a p{padding-top:20px;}

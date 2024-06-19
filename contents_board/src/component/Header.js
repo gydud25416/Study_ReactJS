@@ -4,13 +4,18 @@ import { Link } from 'react-router-dom';
 const Header =()=>{
 
     return(
-        <div className="header"> 
+        <header className="header"> 
             <h1>
                 <Link to={'/'}>
-                Contents Board
+                On-Line Content Board
                 </Link>
             </h1>
-        </div>
+            <ul>
+            <li><Link to={'/'}><span>Home</span></Link></li>
+            <li><Link to={'/animals/'}><span>Animals</span></Link></li>
+            <li><Link to={'/foods/'}><span>Foods</span></Link></li>
+            </ul>
+        </header>
     )
 }
 export default Header;
