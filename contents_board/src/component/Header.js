@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header =()=>{
 
     return(
-        <header className="header"> 
+        <header className="header" style={{backgroundImage: 'url(' + process.env.PUBLIC_URL + '/contentsboard/assets/header_visual.jpg)' }}> 
             <h1>
                 <Link to={'/'}>
                 On-Line Content Board

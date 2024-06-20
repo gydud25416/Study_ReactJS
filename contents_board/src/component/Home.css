@@ -1,4 +1,4 @@
-.home{ display: flex; width:100%; justify-content: space-between;   align-items: flex-start; align-items: stretch;}
+.home{ display: flex; width:100%; justify-content: space-between;   align-items: flex-start; align-items: stretch; margin:80px 0;}
 .home section{width:48%;}
 .home   .haedLine  .contentsList li{margin-bottom:10px; border-radius: 0;}
 

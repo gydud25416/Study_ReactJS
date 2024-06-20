@@ -3,6 +3,6 @@
 }
  
  .page_wrap {display: flex; justify-content: space-between; background-color: #efefef; }
- .page_wrap .contents_wrap{width:85%; margin:0 auto; background:#efefef; padding:80px 0px; }
- 
+ .page_wrap .contents_wrap{width:85%; margin:0 auto; background:#efefef;  }
+ .page_wrap .contents_wrap>h1{padding-top:80px;}
  

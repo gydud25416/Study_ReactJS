@@ -1,4 +1,4 @@
-.contentsList{ display: flex; padding:100px 10px; justify-content: space-between; flex-wrap: wrap; transition:0.5s;}
+.contentsList{ display: flex; padding:30px 10px; justify-content: space-between; flex-wrap: wrap; transition:0.5s;}
 
 .contentsList li{ text-align: center; background:#fff; width:22%;  border-radius: 15px; box-shadow: 10px 10px 10px rgba(0,0,0,0.3); margin-bottom:50px;}
 .contentsList h1{padding-top:30px;}

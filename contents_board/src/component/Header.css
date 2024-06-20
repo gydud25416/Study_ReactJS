@@ -1,4 +1,4 @@
-.header{padding:50px 100px; background:#fff; border-bottom:rgb(180, 10, 10) solid 3px; background-image: url(../assets/header_visual.jpg); background-size: cover; background-repeat: no-repeat; position: relative; }
+.header{padding:50px 100px; background:#fff; border-bottom:rgb(180, 10, 10) solid 3px;  background-size: cover; background-repeat: no-repeat; position: relative; }
  
 .header h1{text-align: left;}
 .header h1 a{color:#fff; font-size:42px;  }
