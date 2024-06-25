@@ -1,3 +1,20 @@
 .home{}
 
 .home h1{text-align: center;}
+
+.home .reviewWrap{display: flex; justify-content: space-between;}
+.home  h1{padding-bottom:20px;}
+.home .reviewWrap>div{width:calc(49% - 60px);  padding:20px 30px; border-radius: 10px;}
+
+/* 댓글 리스트 */
+.home .reviewWrap .reviewList li{border-bottom:1px solid #aaa; padding:20px 10px;  background:#fffbf6;}
+.home .reviewWrap .reviewList li:first-child{border-top:1px solid #aaa;}
+
+.home .reviewWrap .reviewList li p{display: flex; justify-content: space-between;}
+.home .reviewWrap .reviewList li p span:first-child{font-size: 18px; font-weight: 600; padding-bottom:15px;}
+
+/* 댓글작성하기 */
+.home .reviewWrap .reviewPost{ background:#fffbf6; height: 250px;  box-shadow: 8px 5px 8px rgba(0,0,0,0.1)}
+.home .reviewWrap .reviewPost h2 {text-align: center; padding-bottom:30px;}
+.home .reviewWrap .reviewPost textarea { width:100%; height:110px; resize:none; border:2px #555 solid; border-radius: 10px; box-sizing: border-box; padding:5px; margin-bottom: 15px;}
+.home .reviewWrap .reviewPost button{  padding:15px 25px; background:#f03e3e;border-radius: 10px; border:0; color:#fff; font-size: 18px; margin:0 auto; display: block; }

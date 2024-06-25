@@ -1,9 +1,10 @@
  import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './component/Header';
-import SignUp from './component/SignUp';
-import LogIn from './component/LogIn';
+ 
 import Home from './component/Home';
+import LogIn from './component/LogIn';
+import SignUp from './component/SignUp';
  
 
 function App() {
