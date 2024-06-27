@@ -2,16 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import './ItemList.css'
 import ItemView from './ItemView'
 
-export default function ItemList({addData, DelData}){ 
+export default function ItemList({addData, DelData, FilterData, saveData}){ 
     const yearRef = useRef(null);
     const searchRef = useRef(null);
- 
-    const [yearItem, setYearItem] = useState('전체');  
+
+    const [yearItem, setYearItem] = useState( !saveData.yearItem  ? '전체' : saveData.yearItem);  
     const [ itemData, setItemData] = useState(addData);
-    const [ plusFilter, setPlusFilter] = useState("all");
-    const [search, setSearch] = useState('');
+    const [ plusFilter, setPlusFilter] = useState(!saveData.plusFilter ?  "all": saveData.plusFilter);
+    const [search, setSearch] = useState( saveData && saveData.search ? saveData.search  : ''  );
     
-    
+
  
     function handleOnChange(){ //연도 이동
         setYearItem(yearRef.current.value); 
@@ -23,15 +23,12 @@ export default function ItemList({addData, DelData}){
 
     function handleOnChangeSearch(e){ //검색
         setSearch(e.target.value); 
-   }
-
- 
-
+   } 
     useEffect(()=>{  //내역 필터링
-        let result = addData ;
-
-        if(yearRef.current.value !== '전체'){ //연도 필터링
+        let result = addData ; 
+        if(yearItem !== '전체'){ //연도 필터링
             result = result.filter((it)=>(it.year === yearItem )); 
+            yearRef.current.value = yearItem;
         }
 
         if(plusFilter !== "all"){ //입금 출금 필터링
@@ -45,9 +42,12 @@ export default function ItemList({addData, DelData}){
         result.sort((a, b)=>{   //최신순으로 정렬 (b-a)
             return new Date(b.day) - new Date(a.day);
         }) 
-        setItemData(result);  
+        setItemData(result); 
+        
+       FilterData({yearItem, plusFilter, search}); 
+       
 
-    },[yearItem, addData, plusFilter, search]);
+    },[yearItem, addData, plusFilter, search     ]);
     
     return(
         <div className="wrap_list">

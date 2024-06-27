@@ -3,12 +3,28 @@ import './Add.css'
 import Button from './Button'
 import './Button.css'
 import getFormattedDate  from './util.js'
+import Header from './Header.js';
+import { useNavigate } from 'react-router-dom';
 
-export default function Add({btn, onClick, AddData}){
+export default function Add({  FilterData, AddData}){
     const dateRef = useRef(null);
     const plusRef = useRef(null);
     const textRef = useRef(null);
     const contentRef = useRef(null);
+    const navigate = useNavigate();
+    
+    function dataInput(){
+        if (dateRef.current.showPicker) {
+            dateRef.current.showPicker();
+          } else {
+            // For older browsers, enable readOnly temporarily to show the calendar
+            dateRef.current.readOnly = false;
+            dateRef.current.focus();
+            dateRef.current.readOnly = true;
+          }
+          
+    }
+   
 
     const [state, setState] = useState({
         date : getFormattedDate(new Date())
@@ -16,6 +32,7 @@ export default function Add({btn, onClick, AddData}){
 
     function handleChangeDate(e){
         setState(e.target.value);
+    
     } 
 
     function onlyNumber(){
@@ -56,17 +73,24 @@ export default function Add({btn, onClick, AddData}){
         .then(data=>{
             if(data){ 
                 alert("등록하였습니다."); 
+                navigate('/', {replace:true})
                 AddData(data);
-                onClick();
+                FilterData({yearItem:"전체", plusFilter:"all", search:'' })
+                // onClick();
         }
         })
     }
 } 
+function goBack(e){
+    e.preventDefault();
+    
+    navigate('/');
+  }
     return(
-        <div className="wrap_add main_wrap" style={{display:!btn ? "none":"block"}}>
-            <h2>내역 추가하기</h2>
-            <form>
-                <input className='date' ref={dateRef} type='date'   value={state.date}  onChange={handleChangeDate} />
+        <div className="wrap_add  "  >
+            <Header title={"내역 추가하기"}  />
+            
+                <input className='date' id='dataInput'   onClick={dataInput}  ref={dateRef} type='date'   value={state.date}  onChange={handleChangeDate} />
                 <div>
                     
                     <label htmlFor={'memo'} style={{ display:"block",   fontSize:"18px" }}>메모</label>
@@ -79,9 +103,9 @@ export default function Add({btn, onClick, AddData}){
                 </div>
                 <div className='btn'>
                     <Button  text={"등록"} onClick={onSubmit} className={"btn_add"} />
-                    <Button text={"취소"} onClick={onClick} type="reset" className={"btn_back"} />
+                    <Button text={"취소"} onClick={goBack}   className={"btn_back"} />
                 </div>
-            </form>
+           
         </div>
     )
 }

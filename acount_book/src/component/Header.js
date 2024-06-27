@@ -1,12 +1,13 @@
  
 import './Header.css'
 
-export default function Header(){
+export default function Header({title, leftChild, rightChild}){
 
     return(
         <header>
-           <h1>가계부</h1>
-         
+            
+           <h1>{title}</h1>
+            
         </header>
     )
 }
