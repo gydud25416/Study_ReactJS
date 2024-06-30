@@ -1,7 +1,41 @@
 import './LogIn.css'
 import {Link} from 'react-router-dom'
+import {useState} from 'react'
+import axios from 'axios';
+import useFetch from '../hooks/useFetch';
 
 export default function LogIn(){
+
+    const item = useFetch('http://localhost:3001/members');
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
+    const [LogIn, setLogIn] = useState(false);
+
+    function handleChageId(e){
+        setId(e.target.value);
+    }
+
+    function handleChagePw(e){
+        setPw(e.target.value);
+    }
+
+    function onSubmit(){
+        axios.post('http://localhost:3001/members',{ id,  pw})
+        .then((res)=>{ 
+            const result = item.data.find((item)=> item.memId === id && item.memPw === pw);
+            
+            if(result){
+                console.log("로그인 성공");
+                setLogIn(true);
+            }else{
+                alert("아이디 혹은 비밀번호가 일치하지 않습니다.")
+                setLogIn(false);
+            }
+        }) 
+        .catch((err) => {
+            console.error('에러 발생:', err);
+          });
+    }
 
     return(
         <div className="loginWrap">
@@ -9,15 +43,15 @@ export default function LogIn(){
             <div className='loginContents'>
                 <div>
                     <div className="inputWrap">
-                        <label for="item_id">아이디</label>
-                        <input name="item_id" id="item_id" type="text" />
+                        <label htmlFor="item_id">아이디</label>
+                        <input name="item_id" onChange={handleChageId} value={id} id="item_id" type="text" />
                     </div>
                     <div className="inputWrap">
-                        <label for="item_pw">비밀번호</label>
-                        <input name="item_pw" id="item_pw" type="password" />
+                        <label htmlFor="item_pw">비밀번호</label>
+                        <input name="item_pw" onChange={handleChagePw} value={pw} id="item_pw" type="password" />
                     </div>
                 </div>
-                <button>로그인</button> 
+                <button onClick={onSubmit}>로그인</button> 
             </div>
             <Link to={'/signup'}>회원가입</Link>
         </div>
