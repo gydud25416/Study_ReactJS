@@ -1,15 +1,15 @@
 import './LogIn.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useState} from 'react'
 import axios from 'axios';
 import useFetch from '../hooks/useFetch';
 
-export default function LogIn(){
-
+export default function LogIn({LogInFunc}){
+    const navigate = useNavigate(null);
     const item = useFetch('http://localhost:3001/members');
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
-    const [LogIn, setLogIn] = useState(false);
+ 
 
     function handleChageId(e){
         setId(e.target.value);
@@ -20,16 +20,18 @@ export default function LogIn(){
     }
 
     function onSubmit(){
-        axios.post('http://localhost:3001/members',{ id,  pw})
+        axios.post('http://localhost:3001/members',{id, pw})
         .then((res)=>{ 
             const result = item.data.find((item)=> item.memId === id && item.memPw === pw);
             
-            if(result){
-                console.log("로그인 성공");
-                setLogIn(true);
+            if(result){ 
+                navigate('/')
+                LogInFunc(true);
+                axios.delete(`http://localhost:3001/members/${id}`);
             }else{
-                alert("아이디 혹은 비밀번호가 일치하지 않습니다.")
-                setLogIn(false);
+                alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+                LogInFunc(false);
+                axios.delete(`http://localhost:3001/members/${id}`);
             }
         }) 
         .catch((err) => {
