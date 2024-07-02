@@ -26,13 +26,12 @@ export default function LogIn({LogInFunc}){
             
             if(result){ 
                 navigate('/')
-                LogInFunc(true);
-                axios.delete(`http://localhost:3001/members/${id}`);
+                LogInFunc(true); 
             }else{
                 alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-                LogInFunc(false);
-                axios.delete(`http://localhost:3001/members/${id}`);
+                LogInFunc(false); 
             }
+            axios.delete(`http://localhost:3001/members/${id}`);
         }) 
         .catch((err) => {
             console.error('에러 발생:', err);

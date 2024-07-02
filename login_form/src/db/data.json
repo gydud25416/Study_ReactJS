@@ -5,6 +5,12 @@
       "memId": "hong1234",
       "memPw": "12341234",
       "id": "bdda"
+    },
+    {
+      "id": "09b0",
+      "memName": "김영준",
+      "memId": "kobe",
+      "memPw": "123"
     }
   ],
   "review": [
