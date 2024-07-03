@@ -8,7 +8,7 @@ export default function Home({LogInCheck, dataSave, data}){
         <div className="home">
             <h1>Review List</h1>
             <div className="reviewWrap">
-                <ReviewList data={data}  />
+                <ReviewList data={data} dataSave={dataSave} />
                 <ReviewPost dataSave={dataSave} LogInCheck={LogInCheck}/>
             </div>
 

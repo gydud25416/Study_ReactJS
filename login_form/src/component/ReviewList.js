@@ -1,15 +1,8 @@
- import { useEffect, useState } from 'react';
-import useFetch from '../hooks/useFetch'
-
-export default function ReviewList({data}){  
-    const [add, setAdd] = useState(data)
-    useEffect(()=>{  
-        setAdd(data) 
-    },[data]) 
+ 
+export default function ReviewList({data}){     
     return(
         <div className="reviewList">
-        <ul>
-            
+        <ul> 
             {data?.map((it)=>(
                 <li key={it.id}>
                     <p className="reviewName">

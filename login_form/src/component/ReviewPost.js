@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom"
 import secureLocalStorage from "react-secure-storage"; 
+import getFormatttedDate from "./util";
  
 export default function ReviewPost({LogInCheck, dataSave  }){
     const navigate = useNavigate(null);
@@ -12,14 +13,13 @@ export default function ReviewPost({LogInCheck, dataSave  }){
             navigate('/login') ;
         }
     }  
-    function HondleOnClickPost(){
-
+    function HondleOnClickPost(){ 
         if(window.confirm("등록하시겠습니까?")){
         const memInfo = secureLocalStorage.getItem("memInfo")
         axios.post('http://localhost:3001/review',{ 
             memName: memInfo[0].memName ,
             memId:  memInfo[0].memId ,
-            day:"2024-06-03",
+            day: getFormatttedDate(new Date) ,
             content:  refText.current.value 
         }) 
         .then(res=>{ 

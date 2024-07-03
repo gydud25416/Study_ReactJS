@@ -13,17 +13,16 @@ import useFetch from './hooks/useFetch';
 function App() {
   const item = useFetch('http://localhost:3001/review') 
   const [LogInCheck, setLogInCheck] = useState(false); 
-  const [data, setData] = useState(item);
- 
+  const [data, setData] = useState(item); 
   function LogInFunc(state){ 
     setLogInCheck(state)
   }  
   function dataSave(review){
-    setData(it=>[...it, review.data])
-  }
-
+    setData(it=>[...it, review.data].sort((a,b)=>new Date(b.day) - new Date(a.day)))
+  } 
   useEffect(()=>{
-    setData(item.data);   
+    setData(item.data);
+    item.data?.sort((a,b)=>new Date(b.day) - new Date(a.day))  
   },[item])
 
   useEffect(()=>{ 
