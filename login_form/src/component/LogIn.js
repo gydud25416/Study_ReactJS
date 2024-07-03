@@ -1,5 +1,6 @@
 import './LogIn.css'
 import {Link, useNavigate} from 'react-router-dom'
+import secureLocalStorage from "react-secure-storage";
 import {useState} from 'react'
 import axios from 'axios';
 import useFetch from '../hooks/useFetch';
@@ -22,16 +23,19 @@ export default function LogIn({LogInFunc}){
     function onSubmit(){
         axios.post('http://localhost:3001/members',{id, pw})
         .then((res)=>{ 
-            const result = item.data.find((item)=> item.memId === id && item.memPw === pw);
-            
+            const result = item.data.find((item)=> item.memId === id && item.memPw === pw);  
             if(result){ 
                 navigate('/')
                 LogInFunc(true); 
+                const memInfo = item.data.filter((it)=> it.memId === id );
+                secureLocalStorage.setItem("memInfo", memInfo); 
+                secureLocalStorage.setItem("AutoLogIn", true);
             }else{
                 alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
                 LogInFunc(false); 
             }
             axios.delete(`http://localhost:3001/members/${id}`);
+           
         }) 
         .catch((err) => {
             console.error('에러 발생:', err);

@@ -1,11 +1,13 @@
 import {React} from "react"
 import { Link } from "react-router-dom"
 import './Header.css'
+import secureLocalStorage from "react-secure-storage";
 
 export default function Header({LogInCheck, LogInFunc}){ 
 
     function LogOut(){
         LogInFunc(false);
+        secureLocalStorage.setItem("AutoLogIn", false);
     }
     return(
         <header className="header" style={{backgroundImage: 'url(' + process.env.PUBLIC_URL + '/assets/header_visual.jpg)' }}> 

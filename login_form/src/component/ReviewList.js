@@ -1,24 +1,24 @@
+ import { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch'
 
-export default function ReviewList(){
-
+export default function ReviewList({data}){  
+    const [add, setAdd] = useState(data)
+    useEffect(()=>{  
+        setAdd(data) 
+    },[data]) 
     return(
         <div className="reviewList">
         <ul>
-            <li>
-                <p className="reviewName">
-                    <span>김철수 님</span>
-                    <span>2024-05-32</span>
-                </p>
-                <p className="reviewContents">잘 보고 갑니다.</p>
-            </li>
-            <li>
-                <p className="reviewName">
-                    <span>홍길동 님</span>
-                    <span>2024-05-32</span>
-
-                </p>
-                <p className="reviewContents">항상 행복하세요.</p>
-            </li>
+            
+            {data?.map((it)=>(
+                <li key={it.id}>
+                    <p className="reviewName">
+                        <span>{it.memName} 님</span>                    
+                        <span>{it.day}</span> 
+                    </p>
+                    <p className="reviewContents">{it.content}</p>
+                </li>
+            ))} 
         </ul>
     </div>
     )
