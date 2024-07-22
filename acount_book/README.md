@@ -1,3 +1,11 @@
+JSON 서버 구축
+
+`npm install -g json-server`
+
+데이터 생성
+
+`npx json-server ./src/db/data.json --port 3001`
+
 ## GET 호출
 
 ```jsx
