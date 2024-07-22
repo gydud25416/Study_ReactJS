@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+## GET 호출
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```jsx
+    const [days, setDays] = useState([]);
+        
+    useEffect(()=>{
+       fetch('http://localhost:3001/days')
+       .then(res=>{ //res는 실제 json이 아닌 HTTP응답으로, json()를 사용해야 json으로 변환되고 Promise를 반환한다.
+            return res.json();
+       })
+              .then(data=>{
+			        setDays(data)
+       })
+    },[])
+```
 
-## Available Scripts
+<aside>
+💡 `fetch()` 함수는 첫번째 인자로 URL, 두번째 인자로 옵션 객체를 받고, Promise 타입의 객체를 반환합니다. 반환된 객체는, API 호출이 성공했을 경우에는 응답(response) 객체를 resolve하고, 실패했을 경우에는 예외(error) 객체를 reject합니다.
 
-In the project directory, you can run:
+</aside>
 
-### `npm start`
+## PUT 호출
+`fetch(”url”,객체요청의 옵션)`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```jsx
+    function toggleDone(){ 
+        fetch(`http://localhost:3001/words/${it.id}`, {
+            method : 'PUT', //데이터가 덮어씌우는게 아닌, 업데이트 된다. 
+            headers : {
+                'Content-Type' : 'application/json', //보낼 콘텐츠 타입 설정
+            },
+            body: JSON.stringify({ //단순히 가져오는 GET과 다르게 수정할 콘텐츠를 싣는다. 
+                ...it,
+                isDone: !isDone, //기존 데이터에 !isDone을 추가한다.
+            })
+        })
+        .then(res=>{ //Response(응답)을 받아서
+            if(res.ok){ //Response이 ok면
+                setIsDone(!isDone) //setIsDone 실행
+            }
+        })
+    } 
+    const [isDone, setIsDone] = useState(it.isDone);
+    (...)
+     <td><input type="checkbox" checked={ isDone} onChange={toggleDone}/></td>
+     (...)
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<aside>
+💡 데이터가 바뀌면서 새로고침, 페이지 이동이 있어도 변하지 않는다.
 
-### `npm test`
+</aside>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## DELETE 호출
+```jsx
+    function del(){
+        if(window.confirm("삭제 하시겠습니까?")){
+            fetch(`http://localhost:3001/words/${it.id}`, {
+                method : "DELETE", //수정할 정보가 없기 때문에 여기까지만 보낸다.
+        }
+    )};
+    }
+```
+<aside>
+💡 data.json 파일의 데이터가 실시간으로 사라져 다시 불러오지 않는다.
 
-### `npm run build`
+</aside>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## POST 호출
+```jsx
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import useFetch from "../hooks/useFetch"
+import { useNavigate } from "react-router-dom";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default function CreateDay(){
+    const navigate = useNavigate();
+    const days = useFetch("http://localhost:3001/days/")
+    function addDay(){
+        fetch("http://localhost:3001/days/",{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body:JSON.stringify({
+                id:days.length + 1,
+                day : days.length + 1,
+            })
+        })
+        .then(res=>{
+            if(res.ok){
+                navigate('/')
+            }
+        })
+    }
+ 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    return(
+        <div>
+            <h3>현재 일수 : {days.length}일</h3>
+            <button onClick={addDay}>Day 추가</button>
+        </div>
+    )
+}
+```
