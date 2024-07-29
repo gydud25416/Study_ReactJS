@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/64b135ea-a35a-4ead-959f-9120b7b7daf5)
 JSON 서버 구축
 
 `npm install -g json-server`
