@@ -21,7 +21,7 @@ export default function Add({  FilterData, AddData}){
             dateRef.current.readOnly = false;
             dateRef.current.focus();
             dateRef.current.readOnly = true;
-          }
+          } 
           
     }
    

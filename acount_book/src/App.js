@@ -39,7 +39,7 @@ function App() {
     <>
     {item.length === 0 ? (
       <div className='loading'>
-        <p>데이터를 불러오는 중입니다...</p>
+        <p>데이터를 불러오는 중입니다...<br/><span style={{fontSize:"14px"}}>JSON-SERVER를 시작하고있습니다.</span></p>
         <div className='circle'></div>
       </div>
     ):(
