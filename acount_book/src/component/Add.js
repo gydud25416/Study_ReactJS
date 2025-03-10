@@ -40,6 +40,7 @@ export default function Add({  FilterData, AddData}){
     }
  
     function onSubmit(e){
+        const contentTest = /[^0-9]/
         if(contentRef.current.value === ''){
             alert("메모를 입력해주세요.")
             contentRef.current.focus();
@@ -52,7 +53,14 @@ export default function Add({  FilterData, AddData}){
             e.preventDefault();
             return;
         }
-        
+        if(textRef.current.value.match(contentTest)){
+            alert("금액은 숫자만 입력해주세요.");
+            textRef.current.value = "";
+            textRef.current.focus();
+            e.preventDefault();
+            return;
+        }
+
         e.preventDefault();
         if(window.confirm("등록하시겠습니까?")){
             const newItem = {
